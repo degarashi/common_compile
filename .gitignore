@@ -1,0 +1,9 @@
+.clang
+*.cbp
+*.user*
+*.*~
+__pycache__
+*.pyc
+*.kdev4
+*~
+compile_commands.json
