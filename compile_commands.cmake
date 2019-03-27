@@ -18,7 +18,7 @@ function(DefineCompDB DEPEND_TARGET)
 		add_custom_target(compcmd ALL
 			DEPENDS ${${DEPEND_TARGET}}
 			WORKING_DIRECTORY ${CMAKE_BINARY_DIR}
-			COMMAND ${COMPDB} list ">" "${CMAKE_SOURCE_DIR}/${COMP_JSON}"
+			COMMAND ${COMPDB} list "1>" "${CMAKE_SOURCE_DIR}/${COMP_JSON}" "2>/dev/null"
 		)
 	endif()
 endfunction()
