@@ -57,7 +57,8 @@ Make = \
 Clean = \
 	cd $(WORK_DIR);\
 	make clean;\
-	rm -f Makefile CMakeCache.txt;
+	rm -f Makefile CMakeCache.txt;\
+	rm -r CMakeFiles;
 
 .PHONY: cmake clean tags
 all: $(WORK_DIR)/Makefile
