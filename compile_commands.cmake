@@ -1,5 +1,10 @@
 # DEPEND_TARGET = 依存ターゲット名リスト
 function(DefineCompDB DEPEND_TARGET)
+	# compile_commands.jsonを生成しない設定なら何もしない
+	if(NOT CMAKE_EXPORT_COMPILE_COMMANDS)
+		return()
+	endif()
+
 	# compdbが存在すればそれを使ってcompile_commands.jsonを変換
 	set(COMPDB compdb)
 	execute_process(
