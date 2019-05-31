@@ -3,7 +3,7 @@
 macro(BuildWithQt5 SRC PROJNAME)
 	set(Lcl_Opt_Flags "")
 	set(Lcl_Opt_Single "")
-	set(Lcl_Opt_Multi UI_FILE TS_FILE MODULE)
+	set(Lcl_Opt_Multi UI_FILE TS_FILE MODULE LIB)
 	cmake_parse_arguments(BQt5 "${Lcl_Opt_Flags}" "${Lcl_Opt_Single}" "${Lcl_Opt_Multi}" ${ARGN})
 
 	set(CMAKE_AUTOMOC ON)
@@ -29,6 +29,10 @@ macro(BuildWithQt5 SRC PROJNAME)
 		if(NOT m STREQUAL "LinguistTools")
 			list(APPEND Lcl_LinkLibs "Qt5::${m}")
 		endif()
+	endforeach()
+	# 追加で依存ライブラリがあったらそれも加える
+	foreach(lib IN LISTS BQt5_LIB)
+		list(APPEND Lcl_LinkLibs "${lib}")
 	endforeach()
 	target_link_libraries(
 		${PROJNAME}
