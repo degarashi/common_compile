@@ -2,3 +2,7 @@
 -Wno-gnu-anonymous-struct
 -Wno-nested-anon-types
 -Wno-gnu-zero-variadic-macro-arguments
+-pedantic-errors
+-Wmissing-field-initializers
+-Wunused-variable
+-Wsign-compare
