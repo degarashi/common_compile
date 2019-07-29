@@ -12,8 +12,9 @@
 # このファイル(common.make)が置かれているパス
 CURRENT_MAKEDIR_PATH	:= $(shell dirname $(realpath $(lastword $(MAKEFILE_LIST))))
 
+BUILD_BASE_DIR		?= /var/tmp
 PWD					:= $(shell pwd)
-WORK_DIR			:= /var/tmp/$(LIB_NAME)
+WORK_DIR			:= $(BUILD_BASE_DIR)/$(LIB_NAME)
 
 JOBS				?= $(shell expr $(shell nproc) + 1)
 BUILD_TYPE			?= Debug
